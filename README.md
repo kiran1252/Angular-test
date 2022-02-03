@@ -1,14 +1,14 @@
 # Angular-test
 
-This is a test project to demonstrate using Intern with Angular 4+. It contains [all of the specs](https://angular.io/generated/live-examples/testing/app-specs.eplnkr.html) from Angular's test guide as well as [some extras](https://angular.io/generated/live-examples/testing/bag-specs.eplnkr.html). Specs have been reformatted and converted to using Intern best practices as outlined below.
+
 
 ## Get started
 
 ### Clone the repo
 
 ```shell
-git clone https://github.com/bryanforbes/intern-angular
-cd intern-angular
+git clone https://github.com/kiran1252/Angular-test.git
+cd Angular-test
 ```
 
 ### Install npm packages
