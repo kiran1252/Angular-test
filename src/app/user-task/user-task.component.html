@@ -1,0 +1,78 @@
+<fieldset style="margin: 4%;">
+    <legend>User Task</legend>
+    <form [formGroup]="TaskForm">
+    <div >
+        <div class="form-row align-items-center " >
+            <div class="col-sm-3 my-1 space">
+                <textarea type="text" class="form-control" [(ngModel)]="value" (ngModelChange)="valueChange(value)"  formControlName="Task" placeholder="Task Discription"></textarea>
+                <label>Task</label>
+                <label style="margin-left: 70%;">{{count}}/200</label>
+                <p class="alert alert-danger" *ngIf="TaskForm.controls['Task'].hasError('maxlength')">
+                      cannot exceed 200 characters.
+                </p>
+                
+            </div>
+            <div class="col-sm-3 my-1 space">
+
+                <input type="date" class="form-control" id="date" formControlName="Expiry_date">
+                <label>Expiry Date</label>
+            </div>
+            <div class="col-auto my-1 space">
+
+                <select class="custom-select mr-sm-2" id="users" formControlName="User">
+                    <option value="0">Select...</option>
+                    <option *ngFor="let item of userTask.Users" value="{{item}}">{{item}}</option>
+
+                </select>
+                <label>Users</label>
+            </div>
+            <div class="col-auto my-1 space">
+                <div class=" custom-checkbox mr-sm-9">
+                    <input type="checkbox" formControlName="Important" style="margin-right: 8.5px;">
+                    <label >Important </label>
+                </div>
+            </div>
+           
+            <div class="col-auto my-1 space">
+                <button type="submit" (click)="onSubmit()" class="btn btn-primary" [disabled]="TaskForm.invalid">Submit</button>
+            </div>
+            
+        </div>
+            <hr>
+
+            <table class="table table-bordered table-striped" style="margin-top: 3%;">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Expiry Date</th>
+                        <th>Users</th>
+                        <th>Important</th>
+                        <th>Action</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of userTask.Tasks">
+                        <td>{{i.Task}}</td>
+                        <td>{{i.Expiry_date}}</td>
+                        <td>
+
+                            <select class="custom-select mr-sm-2" id="users" >
+                                <option selected>Select...</option>
+                                <option *ngFor="let item of userTask.Users" value="{{item}}" [selected]="item == i.User" >{{item}}</option>
+            
+                            </select>
+
+                        </td>
+                        <td>{{i.Important}}</td>
+                        <td>--</td>
+                       
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+    </div>
+</form>
+</fieldset>
